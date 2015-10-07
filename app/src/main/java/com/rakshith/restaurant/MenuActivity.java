@@ -6,13 +6,11 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.rakshith.restaurant.MyAdapter.MenuAdapter;
 import com.rakshith.restaurant.dao.MenuItem;
-import com.rakshith.restaurant.dao.NavDrawerItem;
-import com.rakshith.restaurant.side_menu.NavigationDrawerAdapter;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -83,7 +81,7 @@ public class MenuActivity extends AppCompatActivity {
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //What to do on back clicked
+
                 finish();
             }
         });
