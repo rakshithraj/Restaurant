@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.rakshith.restaurant.R;
 import com.rakshith.restaurant.dao.MenuItem;
@@ -46,6 +47,8 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.MyViewHolder> 
     public void onBindViewHolder(MyViewHolder holder, int position) {
         MenuItem current = data.get(position);
         holder.menuImage.setImageResource(current.getImageId());
+        holder.itemView.setOnClickListener(new ItemOnclickListner(position));
+
 
     }
 
@@ -56,10 +59,23 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.MyViewHolder> 
 
     class MyViewHolder extends RecyclerView.ViewHolder {
         ImageView menuImage;
-
+        View itemView;
         public MyViewHolder(View itemView) {
             super(itemView);
             menuImage = (ImageView) itemView.findViewById(R.id.menuImage);
+            this.itemView=itemView;
+        }
+    }
+
+    public class ItemOnclickListner implements View.OnClickListener {
+        int postion;
+        public  ItemOnclickListner(int postion ){
+            this.postion=postion;
+        }
+
+        @Override
+        public void onClick(View v) {
+            Toast.makeText(context,"clicked psoition "+(postion+1),Toast.LENGTH_SHORT).show();
         }
     }
 }
